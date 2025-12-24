@@ -24,10 +24,6 @@ const DIRECTIONS: Direction[] = [
   { x: 0, y: 1, name: 'vertical' },
   { x: 1, y: 1, name: 'diagonal-down' },
   { x: 1, y: -1, name: 'diagonal-up' },
-  { x: -1, y: 0, name: 'horizontal-reverse' },
-  { x: 0, y: -1, name: 'vertical-reverse' },
-  { x: -1, y: -1, name: 'diagonal-down-reverse' },
-  { x: -1, y: 1, name: 'diagonal-up-reverse' },
 ]
 
 const FILL_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
