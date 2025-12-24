@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Special+Elite&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #F5F1E6;
+  --paper-dark: #E8E0D0;
+  --ink: #2C2416;
+  --ink-light: #4A3F2F;
+  --accent: #8B0000;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+}
+
+/* Paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Vintage vignette */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(44, 36, 22, 0.15) 100%);
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Letter grid styling */
+.letter-cell {
+  @apply w-8 h-8 md:w-10 md:h-10 flex items-center justify-center;
+  @apply text-lg md:text-xl font-body font-medium;
+  @apply cursor-pointer select-none;
+  @apply transition-all duration-150;
+  border: 1px solid transparent;
+}
+
+.letter-cell:hover {
+  background: rgba(139, 0, 0, 0.1);
+}
+
+.letter-cell.selected {
+  background: rgba(139, 0, 0, 0.2);
+  border-color: var(--accent);
+}
+
+.letter-cell.found {
+  color: var(--accent);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Word list styling */
+.word-item {
+  @apply font-body text-base md:text-lg;
+  @apply py-1 px-2;
+  @apply transition-all duration-200;
+}
+
+.word-item.found {
+  @apply line-through opacity-50;
+  color: var(--accent);
+}
+
+/* Decorative newspaper elements */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 0.5rem;
+}
+
+.masthead::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  margin-top: 3px;
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--ink);
+  margin: 1rem 0;
+}
+
+.section-rule.thick {
+  border-top-width: 2px;
+}
+
+.column-rule {
+  border-left: 1px solid var(--ink-light);
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+/* Print-style decorative caps */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  color: var(--ink);
+}
+
+/* Vintage button */
+.vintage-btn {
+  @apply font-display text-sm uppercase tracking-widest;
+  @apply px-6 py-2;
+  @apply border-2 border-ink;
+  @apply bg-transparent;
+  @apply transition-all duration-200;
+}
+
+.vintage-btn:hover {
+  @apply bg-ink text-paper;
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
