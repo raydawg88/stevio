@@ -22,8 +22,6 @@ export type Puzzle = {
 const DIRECTIONS: Direction[] = [
   { x: 1, y: 0, name: 'horizontal' },
   { x: 0, y: 1, name: 'vertical' },
-  { x: 1, y: 1, name: 'diagonal-down' },
-  { x: 1, y: -1, name: 'diagonal-up' },
 ]
 
 const FILL_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'

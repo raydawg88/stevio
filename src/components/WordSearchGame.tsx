@@ -293,9 +293,8 @@ export default function WordSearchGame() {
             <div className="font-body text-sm text-ink-faded space-y-2">
               <p className="font-semibold text-ink">How to Play</p>
               <p>
-                Click and drag across letters to form words. Words may run
-                horizontally, vertically, or diagonally&mdash;forwards or
-                backwards.
+                Click and drag across letters to form words. Words run
+                horizontally or vertically.
               </p>
             </div>
           </div>
